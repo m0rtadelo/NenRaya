@@ -10,7 +10,7 @@ import { Game } from '../model/game.model';
   styleUrls: ['./gameboard.component.css']
 })
 export class GameboardComponent implements OnInit {
-  @Input() panel: number;
+  panel: number;
   board = [];
   items = [];
   // columns = 3;
@@ -18,7 +18,13 @@ export class GameboardComponent implements OnInit {
   constructor(private store: Store<AppState>) {
     this.status = this.store.select(state => state.game);
   }
-
+  reset() {
+    this.store.dispatch({
+      type: 'RESET'
+    });
+    this.board = [];
+    this.items = [];
+  }
   turn() {
     const value = (<HTMLInputElement>document.getElementById('cell')).value;
     this.store.dispatch({

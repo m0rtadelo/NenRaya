@@ -7,6 +7,8 @@ const GAME = 1;
 export function gameReducer(state: Game = { turn: 0, board: [], state: MENU, gridWidth: 3 }, action) {
 
     switch (action.type) {
+        case 'RESET':
+            return { turn: 0, board: [], state: MENU, gridWidth: 3 };
         case 'START':
             state.gridWidth = action.payload.turn;
             state.turn = 0;
