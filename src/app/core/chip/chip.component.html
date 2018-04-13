@@ -1,5 +1,5 @@
-<div (click)="incState();">
-  <span *ngIf="state==0">·</span>
-  <span *ngIf="state==1">X</span>
-  <span *ngIf="state==2">O</span>
+<div (click)="incState()">
+  <span *ngIf="(status | async).board[index] == 0">·</span>
+  <span *ngIf="(status | async).board[index] == 1">X</span>
+  <span *ngIf="(status | async).board[index] == 2">O</span>
 </div>

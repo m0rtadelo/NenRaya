@@ -11,7 +11,7 @@ export class GameComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.panel = 3;
+    this.panel = 4;
   }
 
 }

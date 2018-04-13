@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AppState } from './../../app.state';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { Game } from '../model/game.model';
 
 @Component({
   selector: 'app-gameboard',
@@ -9,9 +13,34 @@ export class GameboardComponent implements OnInit {
   @Input() panel: number;
   board = [];
   items = [];
-  constructor() { }
+  // columns = 3;
+  status: Observable<Game>;
+  constructor(private store: Store<AppState>) {
+    this.status = this.store.select(state => state.game);
+  }
 
-  ngOnInit() {
+  turn() {
+    const value = (<HTMLInputElement>document.getElementById('cell')).value;
+    this.store.dispatch({
+      type: 'TURN',
+      payload: {
+        turn: value
+      }
+    });
+  }
+  startGame() {
+    const value = (<HTMLInputElement>document.getElementById('table')).value;
+    this.panel = +value;
+    this.store.dispatch({
+      type: 'START',
+      payload: {
+        turn: this.panel
+      }
+    });
+    this.createGameboard();
+  }
+
+  createGameboard() {
     for (let r = 0; r < this.panel; r++) {
       this.items = [];
       for (let i = 0; i < this.panel; i++) {
@@ -19,5 +48,9 @@ export class GameboardComponent implements OnInit {
       }
       this.board.push(this.items);
     }
+  }
+  ngOnInit() {
+    /*
+    */
   }
 }
