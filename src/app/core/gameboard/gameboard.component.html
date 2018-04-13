@@ -1,11 +1,12 @@
-<table>
+<table style="font-size: 40px;">
   <tr *ngFor="let row of board; let r = index">
     <td *ngFor="let item of items; let c = index">
       <app-chip [r]="r" [c]="c"></app-chip>
     </td>
   </tr>
 </table>
-{{(status | async).state}} 
-<input type="text" id="table" size="2" value="3"/><button (click)="startGame()" [disabled]="(status | async).state!=0">Start</button>
-<input type="text" id="cell" size="2"/>
-<button (click)="turn()">Turn</button>
+<span *ngIf="(status | async).state==0">Gameboard size:
+<input type="text" id="table" size="2" value="3"/>
+</span>
+<button (click)="startGame()" [disabled]="(status | async).state!=0">Start</button>
+<button (click)="reset()" [disabled]="(status | async).state==0">Reset</button>
