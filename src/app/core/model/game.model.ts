@@ -1,6 +1,6 @@
 export interface Game {
-    gridWidth: number;
-    state: number;
+    gridWidth?: number;
+    state?: number;
     turn: number;
-    board: number[];
+    board?: number[];
 }

@@ -1,4 +1,4 @@
-<table style="font-size: 40px;">
+<table style="font-size: 40px;"  *ngIf="(status | async).state>0">
   <tr *ngFor="let row of board; let r = index">
     <td *ngFor="let item of items; let c = index">
       <app-chip [r]="r" [c]="c"></app-chip>

@@ -13,7 +13,6 @@ export class GameboardComponent implements OnInit {
   panel: number;
   board = [];
   items = [];
-  // columns = 3;
   status: Observable<Game>;
   constructor(private store: Store<AppState>) {
     this.status = this.store.select(state => state.game);
@@ -47,6 +46,7 @@ export class GameboardComponent implements OnInit {
   }
 
   createGameboard() {
+    this.board = [];
     for (let r = 0; r < this.panel; r++) {
       this.items = [];
       for (let i = 0; i < this.panel; i++) {
@@ -56,7 +56,5 @@ export class GameboardComponent implements OnInit {
     }
   }
   ngOnInit() {
-    /*
-    */
   }
 }
