@@ -3,6 +3,8 @@ import { Action } from '@ngrx/store';
 
 const MENU = 0;
 const GAME = 1;
+const PLAYER_WIN = 2;
+const PLAYER_DRAW = 3;
 
 export function gameReducer(state: Game = { turn: 0, board: [], state: MENU, gridWidth: 3 }, action) {
 
@@ -18,7 +20,6 @@ export function gameReducer(state: Game = { turn: 0, board: [], state: MENU, gri
         case 'TURN':
             state.board[action.payload.turn] = state.turn + 1;
             check();
-            state.turn = 1 - state.turn;
             return state;
         default:
             return state;
@@ -26,8 +27,10 @@ export function gameReducer(state: Game = { turn: 0, board: [], state: MENU, gri
 
     function check() {
         if (checkHorizontal()) {
-            state.state = MENU;
+            state.state = PLAYER_WIN;
             state.board = [];
+        } else {
+            state.turn = 1 - state.turn;
         }
     }
 

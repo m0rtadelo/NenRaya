@@ -1,0 +1,8 @@
+<div ngbDropdown class="d-inline-block">
+  <input #date class="form-control" placeholder="dd-mm-yyyy" value="{{ getDate() }}" (blur)="setDate(date.value);">
+  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle (click)="dp.open()">Toggle dropdown</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <ngb-datepicker #dp [(ngModel)]="model" (navigate)="model = $event.next" (click)="$event.stopPropagation()"></ngb-datepicker>
+  </div>
+</div>
+{{ model | json }}
