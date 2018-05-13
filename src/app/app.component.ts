@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 const now = new Date();
 
@@ -12,11 +12,15 @@ export class AppComponent implements OnInit {
   title = 'N en Raya';
   model: NgbDateStruct;
   date: string; //  = `${this.model.year}`;
-
+  check: string;
   selectToday() {
-    this.model = {year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()};
+    this.model = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   }
   ngOnInit() {
     this.selectToday();
+  }
+
+  checks() {
+    console.log('check');
   }
 }
