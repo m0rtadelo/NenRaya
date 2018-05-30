@@ -8,10 +8,12 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './datepicker2.component.html',
   styleUrls: ['./datepicker2.component.css']
 })
+
 @Injectable()
-export class Datepicker2Component extends NgbDateParserFormatter implements OnChanges {
+export class Datepicker2Component extends NgbDateParserFormatter {
   @Input() model: NgbDateStruct;
   @Output() output = new EventEmitter();
+
   parse(value: string): NgbDateStruct {
     if (value) {
       const dateParts = value.trim().split('-');
@@ -30,6 +32,7 @@ export class Datepicker2Component extends NgbDateParserFormatter implements OnCh
       `${isNumber(date.day) ? padNumber(date.day) : ''}-${isNumber(date.month) ? padNumber(date.month) : ''}-${date.year}` :
       '';
       this.output.emit({formattedDate});
+      console.log(formattedDate);
       return formattedDate;
   }
   constructor(config: NgbDatepickerConfig) {
@@ -40,14 +43,5 @@ export class Datepicker2Component extends NgbDateParserFormatter implements OnCh
 
     // days that don't belong to current month are not visible
     config.outsideDays = 'hidden';
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
-
-  today() {
-    const now = new Date();
-    this.model = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   }
 }
