@@ -15,6 +15,7 @@ import { Datepicker1Component } from './core/datepicker1/datepicker1.component';
 import { Datepicker2Component } from './core/datepicker2/datepicker2.component';
 import { AtxTooltipModule } from '@atx/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TestutComponent } from './core/testut/testut.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     Datepicker1Component,
     Datepicker2Component,
+    TestutComponent,
   ],
   imports: [
     BrowserModule,
