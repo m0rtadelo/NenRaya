@@ -3,7 +3,6 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './core/game/game.component';
 import { HeaderComponent } from './core/header/header.component';
 import { Datepicker2Component } from './core/datepicker2/datepicker2.component';
-import { AtxTooltipModule } from '@atx/material';
 import { ScoreComponent } from './core/score/score.component';
 import { GameboardComponent } from './core/gameboard/gameboard.component';
 import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
@@ -31,7 +30,6 @@ describe('AppComponent', () => {
         TestutComponent
       ],
       imports: [
-        AtxTooltipModule,
         NgbModule.forRoot(),
         FormsModule,
         ReactiveFormsModule,
@@ -76,10 +74,10 @@ describe('AppComponent', () => {
     expect(element).toBeTruthy();
   });
 
-  it('should exist component <atx-tooltip> when component is rendered', () => {
-    const element = getQueryBy('atx-tooltip');
-    expect(element).toBeTruthy();
-  });
+  // it('should exist component <atx-tooltip> when component is rendered', () => {
+  //   const element = getQueryBy('atx-tooltip');
+  //   expect(element).toBeTruthy();
+  // });
 
   it('should exist component <app-datepicker2> when component is rendered', () => {
     const element = getQueryBy('app-datepicker2');

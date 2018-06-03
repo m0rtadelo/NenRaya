@@ -13,7 +13,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {NgbModule, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { Datepicker1Component } from './core/datepicker1/datepicker1.component';
 import { Datepicker2Component } from './core/datepicker2/datepicker2.component';
-import { AtxTooltipModule } from '@atx/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestutComponent } from './core/testut/testut.component';
 
@@ -34,7 +33,6 @@ import { TestutComponent } from './core/testut/testut.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AtxTooltipModule,
     NgbModule.forRoot(),
     StoreModule.forRoot({ game: gameReducer }),
     // Instrumentation must be imported after importing StoreModule (config is optional)
