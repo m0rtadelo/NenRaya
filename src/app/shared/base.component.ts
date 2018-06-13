@@ -8,6 +8,7 @@ export class BaseComponent implements OnInit {
   @Input() public value: any;
   @Input() public placeholder: string;
   @Output() public setValue = new EventEmitter<Emitter>();
+  public resetValue: any;
 
   public originalValue: any;
 
@@ -27,5 +28,9 @@ export class BaseComponent implements OnInit {
   public init(value) {
       this.value = value;
       this.originalValue = value;
+  }
+
+  public resetComponent(): void {
+    this.init(this.resetValue);
   }
 }

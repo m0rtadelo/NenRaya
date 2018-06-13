@@ -17,6 +17,7 @@ export class SsoComponent extends BaseComponent implements OnInit {
   @Input() public placeholder1 = '';
   @Input() public placeholder2 = '';
   @Input() public placeholder3 = '';
+  public resetValue = {PRO: '', NUM: '', DIG: ''};
 
   constructor() {
     super();

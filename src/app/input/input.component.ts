@@ -10,7 +10,7 @@ import { BaseComponent } from '../shared/base.component';
 export class InputComponent extends BaseComponent implements OnInit {
   @Input() public maxLength = 2;
   @Input() public value = '';
-
+  public resetValue = '';
   constructor() {
     super();
   }
@@ -28,4 +28,5 @@ export class InputComponent extends BaseComponent implements OnInit {
       this.error = false;
     }
   }
+
 }

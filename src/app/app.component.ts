@@ -68,6 +68,7 @@ export class AppComponent implements OnInit {
   private loadValues(values, groupComponents) {
     groupComponents.forEach(components => {
       components.forEach(component => {
+        component.resetComponent();
         if (values[component.id] !== undefined) {
           component.init(values[component.id]);
         }
