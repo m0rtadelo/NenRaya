@@ -45,5 +45,6 @@
   [placeholder3]="'nn'"
   (setValue)="setValue($event)"
 ></app-sso>
+<button (click)="loadFromMordor()">Load</button>
 <button (click)="showResult()">Console</button>
 {{ this.values | json }}

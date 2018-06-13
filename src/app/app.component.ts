@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Emitter } from './emitter';
+import { InputComponent } from './input/input.component';
+import { SsoComponent } from './sso/sso.component';
 
 const now = new Date();
 
@@ -10,6 +12,8 @@ const now = new Date();
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  @ViewChildren(InputComponent) inputComponents: QueryList<InputComponent>;
+  @ViewChildren(SsoComponent) ssoComponents: QueryList<SsoComponent>;
   title = 'N en Raya';
   model: NgbDateStruct;
   date: string; //  = `${this.model.year}`;
@@ -24,6 +28,10 @@ export class AppComponent implements OnInit {
       DIG: ''
     }*/
   };
+
+  constructor() {
+  }
+
   selectToday() {
     this.model = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   }
@@ -31,7 +39,7 @@ export class AppComponent implements OnInit {
     this.selectToday();
   }
 
-  checks() {
+ checks() {
     console.log('check');
   }
 
@@ -41,5 +49,29 @@ export class AppComponent implements OnInit {
 
   public showResult() {
     console.log(this.values);
+  }
+
+  public loadFromMordor() {
+    this.values = {
+      CAM_PFS_NOM: 'NOM' ,
+      // CAM_PFS_APE_1: 'COG1',
+      CAM_PFS_APE_2: 'COG2',
+      CAM_PFS_SSO: {
+        PRO: '11',
+        NUM: '22222222',
+        DIG: '33'
+      }
+    };
+    this.loadValues(this.values, [this.inputComponents, this.ssoComponents]);
+  }
+
+  private loadValues(values, groupComponents) {
+    groupComponents.forEach(components => {
+      components.forEach(component => {
+        if (values[component.id] !== undefined) {
+          component.init(values[component.id]);
+        }
+      });
+    });
   }
 }
