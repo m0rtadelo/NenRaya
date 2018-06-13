@@ -12,6 +12,7 @@
   [maxLength]="10"
   [value]="'Ricard'"
   [placeholder]="'Nom'"
+  [mandatory]="true"
   (setValue)="setValue($event)"
 ></app-input>
 
@@ -20,13 +21,14 @@
   [maxLength]="15"
   [value]="'Figuls'"
   [placeholder]="'Primer Cognom'"
+  [mandatory]="true"
   (setValue)="setValue($event)"
 ></app-input>
 
 <app-input
   [id]="'CAM_PFS_APE_2'"
   [maxLength]="15"
-
+  [disabled]="true"
   [placeholder]="'Segon cognom'"
   (setValue)="setValue($event)"
 ></app-input>
@@ -43,6 +45,8 @@
   [placeholder1]="'nn'"
   [placeholder2]="'nnnnnnnn'"
   [placeholder3]="'nn'"
+  [disabled]="false"
+  [mandatory]="true"
   (setValue)="setValue($event)"
 ></app-sso>
 <button (click)="loadFromMordor()">Load</button>

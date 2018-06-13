@@ -1,5 +1,6 @@
 <p>{{ this.id }}
   <input #input type="text"
+    [disabled]="disabled"
     [id]="id"
     [maxLength]="maxLength"
     [value]="value"
@@ -7,6 +8,6 @@
     (blur)="this.emit()"
     (keyup.enter)="this.emit()"
     (change)="this.checkValue(input.value)"
-  >
+  ><span *ngIf="mandatory">* </span>
   <span *ngIf="error">Invalid value!</span>
 </p>

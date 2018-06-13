@@ -4,6 +4,8 @@ import { Output, EventEmitter, Input, OnInit } from '@angular/core';
 export class BaseComponent implements OnInit {
 
   public error: boolean;
+  @Input() public disabled = false;
+  @Input() public mandatory = false;
   @Input() public id: string;
   @Input() public value: any;
   @Input() public placeholder: string;

@@ -4,6 +4,7 @@
     maxLength="2"
     size="2"
     [placeholder]="placeholder1"
+    [disabled]="disabled"
     (blur)="this.emit()"
     (change)="this.checkValue('PRO', pro.value)"
   >
@@ -12,6 +13,7 @@
     size="8"
     [value]="value?.NUM"
     [placeholder]="placeholder2"
+    [disabled]="disabled"
     (blur)="this.emit()"
     (change)="this.checkValue('NUM', num.value)"
   >
@@ -20,8 +22,10 @@
     size="2"
     [value]="value?.DIG"
     [placeholder]="placeholder3"
+    [disabled]="disabled"
     (blur)="this.emit()"
     (change)="this.checkValue('DIG', dig.value)"
   >
+  <span *ngIf="mandatory">* </span>
   <span *ngIf="error">Invalid value!</span>
 </p>

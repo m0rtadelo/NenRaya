@@ -8,7 +8,7 @@ import { BaseComponent } from '../shared/base.component';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent extends BaseComponent implements OnInit {
-  @Input() public maxLength = 2;
+  @Input() public maxLength = 20;
   @Input() public value = '';
   public resetValue = '';
   constructor() {
@@ -21,7 +21,7 @@ export class InputComponent extends BaseComponent implements OnInit {
   }
 
   public checkValue(value: string) {
-    if (value.indexOf('o') > -1) {
+    if (value.indexOf('o') > -1 || (this.mandatory && !!!value)) {
       this.error = true;
     } else {
       this.value = value;
