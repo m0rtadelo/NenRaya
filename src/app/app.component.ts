@@ -48,7 +48,8 @@ export class AppComponent implements OnInit {
   }
 
   public showResult() {
-    console.log(this.values);
+    this.inputComponents.forEach(component => console.log(component));
+    this.ssoComponents.forEach(component => console.log(component));
   }
 
   public loadFromMordor() {
@@ -74,5 +75,9 @@ export class AppComponent implements OnInit {
         }
       });
     });
+  }
+
+  private allComponents(): void {
+
   }
 }

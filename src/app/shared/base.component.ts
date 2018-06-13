@@ -28,6 +28,7 @@ export class BaseComponent implements OnInit {
   }
 
   public init(value) {
+      this.error = false;
       this.value = value;
       this.originalValue = value;
   }
