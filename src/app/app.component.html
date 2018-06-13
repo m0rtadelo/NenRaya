@@ -10,7 +10,7 @@
 <app-input
   [id]="'CAM_PFS_NOM'"
   [maxLength]="10"
-  [value]=""
+  [value]="'Ricard'"
   [placeholder]="'Nom'"
   (setValue)="setValue($event)"
 ></app-input>
@@ -18,7 +18,7 @@
 <app-input
   [id]="'CAM_PFS_APE_1'"
   [maxLength]="15"
-  [value]=""
+  [value]="'Figuls'"
   [placeholder]="'Primer Cognom'"
   (setValue)="setValue($event)"
 ></app-input>
@@ -26,9 +26,23 @@
 <app-input
   [id]="'CAM_PFS_APE_2'"
   [maxLength]="15"
-  [value]=""
+  [value]="'Mateu'"
   [placeholder]="'Segon cognom'"
   (setValue)="setValue($event)"
 ></app-input>
-
+<app-input
+  [id]="'CAM_PFS_MADRE'"
+  [maxLength]="15"
+  [value]="''"
+  [placeholder]="'Nombra a tu madre'"
+  (setValue)="setValue($event)"
+></app-input>
+<app-sso
+  [id]="'CAM_PFS_SSO'"
+  [value]="{PRO:'12',NUM:'12345678',DIG:'12'}"
+  [placeholder1]="'nn'"
+  [placeholder2]="'nnnnnnnn'"
+  [placeholder3]="'nn'"
+  (setValue)="setValue($event)"
+></app-sso>
 {{ this.values | json }}

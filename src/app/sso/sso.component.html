@@ -1,0 +1,27 @@
+<p>{{ this.id }}
+  <input #pro type="text"
+    [value]="value?.PRO"
+    maxLength="2"
+    size="2"
+    [placeholder]="placeholder1"
+    (blur)="this.emit()"
+    (change)="this.checkValue('PRO', pro.value)"
+  >
+  <input #num type="text"
+    maxLength="8"
+    size="8"
+    [value]="value?.NUM"
+    [placeholder]="placeholder2"
+    (blur)="this.emit()"
+    (change)="this.checkValue('NUM', num.value)"
+  >
+  <input #dig type="text"
+    maxLength="2"
+    size="2"
+    [value]="value?.DIG"
+    [placeholder]="placeholder3"
+    (blur)="this.emit()"
+    (change)="this.checkValue('DIG', dig.value)"
+  >
+  <span *ngIf="error">Invalid value!</span>
+</p>

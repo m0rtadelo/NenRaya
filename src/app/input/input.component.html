@@ -1,9 +1,10 @@
-<p>
+<p>{{ this.id }}
   <input #input type="text"
     [maxLength]="maxLength"
     [value]="value"
     [placeholder]="placeholder"
     (blur)="this.emit()"
+    (keyup.enter)="this.emit()"
     (change)="this.checkValue(input.value)"
   >
   <span *ngIf="error">Invalid value!</span>

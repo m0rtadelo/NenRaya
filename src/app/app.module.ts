@@ -16,6 +16,7 @@ import { Datepicker2Component } from './core/datepicker2/datepicker2.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestutComponent } from './core/testut/testut.component';
 import { InputModule } from './input/input.module';
+import { SsoModule } from './sso/sso.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { InputModule } from './input/input.module';
     HeaderComponent,
     Datepicker1Component,
     Datepicker2Component,
-    TestutComponent,
+    TestutComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +36,7 @@ import { InputModule } from './input/input.module';
     FormsModule,
     ReactiveFormsModule,
     InputModule,
+    SsoModule,
     NgbModule.forRoot(),
     StoreModule.forRoot({ game: gameReducer }),
     // Instrumentation must be imported after importing StoreModule (config is optional)

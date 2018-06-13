@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     CAM_PFS_NOM: '' ,
     CAM_PFS_APE_1: '',
     CAM_PFS_APE_2: '',
+    CAM_PFS_MADRE: '',
     CAM_PFS_SSO: {
       PRO: '',
       NUM: '',

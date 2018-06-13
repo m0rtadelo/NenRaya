@@ -1,30 +1,23 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Emitter } from '../emitter';
+import { BaseComponent } from '../shared/base.component';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
-export class InputComponent implements OnInit {
-  @Input() public id = '';
+export class InputComponent extends BaseComponent implements OnInit {
   @Input() public maxLength = 2;
   @Input() public value = '';
-  @Input() public placeholder = '';
-  @Output() public setValue = new EventEmitter<Emitter>();
-  public error = false;
 
-  constructor() {}
-
-  ngOnInit() {
-    this.emit();
+  constructor() {
+    super();
   }
 
-  public emit() {
-    this.setValue.emit({
-      id: this.id,
-      value: this.value
-    });
+  ngOnInit() {
+    super.ngOnInit();
+    this.emit();
   }
 
   public checkValue(value: string) {
