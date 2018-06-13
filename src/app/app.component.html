@@ -7,3 +7,28 @@
 <!-- <atx-tooltip message="MESSAGE TOOLTIP" label="title" clazz="btn btn-success" placement="right"></atx-tooltip> -->
 <app-testut></app-testut>
 <!--  -->
+<app-input
+  [id]="'CAM_PFS_NOM'"
+  [maxLength]="10"
+  [value]=""
+  [placeholder]="'Nom'"
+  (setValue)="setValue($event)"
+></app-input>
+
+<app-input
+  [id]="'CAM_PFS_APE_1'"
+  [maxLength]="15"
+  [value]=""
+  [placeholder]="'Primer Cognom'"
+  (setValue)="setValue($event)"
+></app-input>
+
+<app-input
+  [id]="'CAM_PFS_APE_2'"
+  [maxLength]="15"
+  [value]=""
+  [placeholder]="'Segon cognom'"
+  (setValue)="setValue($event)"
+></app-input>
+
+{{ this.values | json }}

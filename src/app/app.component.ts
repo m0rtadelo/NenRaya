@@ -13,6 +13,16 @@ export class AppComponent implements OnInit {
   model: NgbDateStruct;
   date: string; //  = `${this.model.year}`;
   check: string;
+  values = {
+    CAM_PFS_NOM: '' ,
+    CAM_PFS_APE_1: '',
+    CAM_PFS_APE_2: '',
+    CAM_PFS_SSO: {
+      PRO: '',
+      NUM: '',
+      DIG: ''
+    }
+  };
   selectToday() {
     this.model = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   }
@@ -22,5 +32,9 @@ export class AppComponent implements OnInit {
 
   checks() {
     console.log('check');
+  }
+
+  setValue(value) {
+    this.values[value.id] = value.value;
   }
 }
