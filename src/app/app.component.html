@@ -26,7 +26,7 @@
 <app-input
   [id]="'CAM_PFS_APE_2'"
   [maxLength]="15"
-  [value]="'Mateu'"
+
   [placeholder]="'Segon cognom'"
   (setValue)="setValue($event)"
 ></app-input>
@@ -45,4 +45,5 @@
   [placeholder3]="'nn'"
   (setValue)="setValue($event)"
 ></app-sso>
+<button (click)="showResult()">Console</button>
 {{ this.values | json }}

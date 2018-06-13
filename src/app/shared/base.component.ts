@@ -19,7 +19,7 @@ export class BaseComponent implements OnInit {
     if (!this.error) {
       this.setValue.emit({
         id: this.id,
-        value: this.value
+        data: this.value
       });
     }
   }

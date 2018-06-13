@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Emitter } from './emitter';
 
 const now = new Date();
 
@@ -13,16 +14,15 @@ export class AppComponent implements OnInit {
   model: NgbDateStruct;
   date: string; //  = `${this.model.year}`;
   check: string;
-  values = {
+  values = {/*
     CAM_PFS_NOM: '' ,
     CAM_PFS_APE_1: '',
     CAM_PFS_APE_2: '',
-    CAM_PFS_MADRE: '',
     CAM_PFS_SSO: {
       PRO: '',
       NUM: '',
       DIG: ''
-    }
+    }*/
   };
   selectToday() {
     this.model = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
@@ -35,7 +35,11 @@ export class AppComponent implements OnInit {
     console.log('check');
   }
 
-  setValue(value) {
-    this.values[value.id] = value.value;
+  setValue(value: Emitter) {
+    this.values[value.id] = value.data;
+  }
+
+  public showResult() {
+    console.log(this.values);
   }
 }
